@@ -42,7 +42,8 @@ program
     .option('-d --debug', 'debug mode')
     .option('-r --raw', 'save raw cmds')
     .option('--default', 'open checker browser and set 1024x768 by default')
-    .option('--device [value]', 'set mobile device name');
+    .option('--device [value]', 'set mobile device name')
+    .option('--sync [value]', 'set sync browsers');
 
 var cmd = null;
 
@@ -68,7 +69,8 @@ program.command('start')
             debug: program.debug,
             raw: program.raw,
             default: program.default,
-            mobileDevice: program.device
+            mobileDevice: program.device,
+            syncBrowsers: program.sync
         });
     });
 
@@ -84,6 +86,7 @@ if(cmd === null){
     var configJson = {};
 
     if(fs.existsSync(configFile)){
+        console.log('program.sync', program.sync);
         UIRecorder.start({
             locale: program.lang,
             cmdFilename: program.args.length === 1 ? program.args[0] : '',
@@ -91,7 +94,8 @@ if(cmd === null){
             debug: program.debug,
             raw: program.raw,
             default: program.default,
-            mobileDevice: program.device
+            mobileDevice: program.device,
+            syncBrowsers: program.sync
         });
     }
     else{
