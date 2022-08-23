@@ -70,9 +70,11 @@ function sendGlobalEvents(msg, senderTabId){
 
 // websocket to ui recorder server
 var wsSocket;
-function connectServer(port){
+function connectServer(data){
+    const {ip, port} = data
+    console.log('data', data);
     if(!wsSocket){
-        wsSocket = new WebSocket('ws://127.0.0.1:'+port, "protocolOne");
+        wsSocket = new WebSocket('ws://'+ ip + ':' + port, "protocolOne");
         wsSocket.onopen = function (event) {
             console.log('ws connected!');
         }
@@ -331,7 +333,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             var data = request.data;
             switch(type){
                 case 'initBackService':
-                    connectServer(data.port);
+                    connectServer(data);
                     break;
                 case 'save':
                     endRecorder(true);

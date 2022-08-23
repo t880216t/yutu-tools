@@ -43,9 +43,14 @@
     var specLists = [];
 
     var mapParams = {};
-    location.search.replace(/([^\?=]+)=([^&]*)/ ,function(all, key, value){
-        mapParams[key] = value;
-    });
+    if (location.search){
+        const params = location.search.split('?')[1].split('&')
+        params.map((e) => {
+            let key = e.split("=")[0];
+            let value = e.split("=")[1];
+            mapParams[key] = value;
+        });
+    }
 
     // load config
     function updateConfig(config) {
@@ -61,7 +66,8 @@
     chrome.runtime.sendMessage({
         type: 'initBackService',
         data: {
-            port: mapParams.port
+            port: mapParams.port,
+            ip: mapParams.ip
         }
     });
 
