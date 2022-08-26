@@ -1,10 +1,10 @@
 {
-  "name": "uirecorder",
-  "version": "4.0.2-beta.2",
-  "description": "Tool for record ui test case",
+  "name": "yutu-tools",
+  "version": "0.1.0",
+  "description": "多浏览器同步兼容测试驱动",
   "main": "./index",
   "bin": {
-    "uirecorder": "./bin/uirecorder"
+    "yutu": "./bin/yutu"
   },
   "dependencies": {
     "jquery": "3.x",
@@ -34,17 +34,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:alibaba/uirecorder.git"
+    "url": "git@github.com:t880216t/yutu-tools.git"
   },
   "bugs": {
-    "url": "https://github.com/alibaba/uirecorder/issues"
+    "url": "https://github.com/t880216t/yutu-tools/issues"
   },
   "keywords": [
+    "yutu",
     "uirecorder",
     "webdriver",
     "test",
     "recorder"
   ],
-  "author": "Yanis Wang, Stngle",
+  "author": "t880216t",
   "license": "MIT"
 }

@@ -1,11 +1,9 @@
-UI Recorder test sample project
+Yutu test sample project
 ================
 
 It's a UI Recorder test sample project.
 
 Save your test code here.
-
-Get more info: [http://uirecorder.com/](http://uirecorder.com/)
 
 How to run test case?
 ================

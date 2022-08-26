@@ -1,14 +1,14 @@
-# UI Recorder
+# Yutu tools
 
 ---
-
-![logo.png](https://raw.github.com/alibaba/uirecorder/master/logo.png)
 
 [![NPM version](https://img.shields.io/npm/v/uirecorder.svg)](https://www.npmjs.com/package/uirecorder)
 [![License](https://img.shields.io/npm/l/uirecorder.svg)](https://www.npmjs.com/package/uirecorder)
 [![NPM count](https://img.shields.io/npm/dm/uirecorder.svg)](https://www.npmjs.com/package/uirecorder)
 [![NPM count](https://img.shields.io/npm/dt/uirecorder.svg)](https://www.npmjs.com/package/uirecorder)
 [![TesterHome](https://img.shields.io/badge/TTF-TesterHome-2955C5.svg)](https://testerhome.com/github_statistics)
+
+This project is repack from uirecorder.
 
 UI Recorder is multi-platform UI test case recorder like [Selenium IDE](http://docs.seleniumhq.org/projects/ide/) but more powerful than Selenium IDE!
 
@@ -37,38 +37,7 @@ UI Recorder is easy to use, even zero cost.
 13. Support multi systems: Windows, Mac, Linux
 14. Test file base on NodeJs: [jWebDriver](http://jwebdriver.com/)
 
-<!-- GITCONTRIBUTOR_START -->
-
-# Contributors
-
-|[<img src="https://avatars.githubusercontent.com/u/62272417?v=4" width="100px;"/><br/><sub><b>itestauipi</b></sub>](https://github.com/itestauipi)<br/>|[<img src="https://avatars.githubusercontent.com/u/18617837?v=4" width="100px;"/><br/><sub><b>Stngle</b></sub>](https://github.com/Stngle)<br/>|[<img src="https://avatars.githubusercontent.com/u/970390?v=4" width="100px;"/><br/><sub><b>yaniswang</b></sub>](https://github.com/yaniswang)<br/>|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/7446962?v=4" width="100px;"/><br/><sub><b>undead25</b></sub>](https://github.com/undead25)<br/>|[<img src="https://avatars.githubusercontent.com/u/5198256?v=4" width="100px;"/><br/><sub><b>stevobm</b></sub>](https://github.com/stevobm)<br/>|
-| :---: | :---: | :---: | :---: | :---: | :---: |
-|[<img src="https://avatars.githubusercontent.com/u/8197272?v=4" width="100px;"/><br/><sub><b>micosty</b></sub>](https://github.com/micosty)<br/>|[<img src="https://avatars.githubusercontent.com/u/73584840?v=4" width="100px;"/><br/><sub><b>ali-lion</b></sub>](https://github.com/ali-lion)<br/>|[<img src="https://avatars.githubusercontent.com/u/13583768?v=4" width="100px;"/><br/><sub><b>alibaba-oss</b></sub>](https://github.com/alibaba-oss)<br/>|[<img src="https://avatars.githubusercontent.com/u/14184989?v=4" width="100px;"/><br/><sub><b>felizalde</b></sub>](https://github.com/felizalde)<br/>|[<img src="https://avatars.githubusercontent.com/u/977025?v=4" width="100px;"/><br/><sub><b>portokallidis</b></sub>](https://github.com/portokallidis)<br/>|[<img src="https://avatars.githubusercontent.com/u/52845048?v=4" width="100px;"/><br/><sub><b>snapre</b></sub>](https://github.com/snapre)<br/>|
-[<img src="https://avatars.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>|[<img src="https://avatars.githubusercontent.com/u/24625264?v=4" width="100px;"/><br/><sub><b>WingOfTime</b></sub>](https://github.com/WingOfTime)<br/>|[<img src="https://avatars.githubusercontent.com/u/8609783?v=4" width="100px;"/><br/><sub><b>zquancai</b></sub>](https://github.com/zquancai)<br/>
-
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Sat Apr 30 2022 21:11:26 GMT+0800`.
-
-<!-- GITCONTRIBUTOR_END -->
-
-# Screenshots
-
-![shot1](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot1.png)
-
-![shot2](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot2.png)
-
-![shot3](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot3.png)
-
-![shot4](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot4.png)
-
-# Video demo
-
-
-![video1](http://wx1.sinaimg.cn/mw1024/7f3afc78gy1fdf5gass5rg20sg0g0kjo.gif)
-
-![video2](http://wx2.sinaimg.cn/mw1024/7f3afc78gy1fdf5hb8anig20sg0g0u12.gif)
-
 # Quick start
-
 
 ## Install
 
@@ -84,7 +53,7 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 
 3. Install UI Recorder
 
-    > `npm install uirecorder mocha -g`
+    > `npm install yutu-tools mocha -g`
 
 ## PC record
 
@@ -93,13 +62,13 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 
     > Create new folder
 
-    > `uirecorder init`
+    > `yutu init`
 
 2. Start record test case
 
     > edit hosts file
 
-    > `uirecorder sample/test.spec.js`
+    > `yutu sample/test.spec.js`
 
 3. Start WebDriver Server
 
@@ -143,11 +112,11 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 
     > Create new folder
 
-    > `uirecorder init --mobile`
+    > `yutu init --mobile`
 
 3. Start record test case
 
-    > `uirecorder --mobile sample/test.spec.js`
+    > `yutu --mobile sample/test.spec.js`
 
 4. Run test case
 
@@ -166,8 +135,6 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
     > ./screenshots/
 
 # Documentation Translations
-
-1. [中文使用手册](https://github.com/alibaba/uirecorder/blob/master/doc/zh-cn/readme.md)
 
 # QA
 
@@ -344,7 +311,7 @@ Some steps is not very important, but occasionally displayed, this steps will ex
 
 ## How to save raw cmds json?
 
-1. `uirecorder start --raw`
+1. `yutu start --raw`
 2. After test saved, then you can get 2 files: `sample/test.spec.js`, `sample/test.spec.json`
 
 ## Other Tips

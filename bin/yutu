@@ -3,7 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 var program = require('commander');
-var UIRecorder = require('../');
+var Yutu = require('../');
 
 var pkg = require('../package.json');
 
@@ -25,13 +25,8 @@ process.stdout.write = function(string, encoding, fileDescriptor) {
     rawStdoutWrite.apply(process.stdout, arguments);
 }
 
-console.log(("    __  ______   ____                           __         \n\
-   / / / /  _/  / __ \\___  _________  _________/ /__  _____\n\
-  / / / // /   / /_/ / _ \\/ ___/ __ \\/ ___/ __  / _ \\/ ___/\n\
- / /_/ // /   / _, _/  __/ /__/ /_/ / /  / /_/ /  __/ /    \n\
- \\____/___/  /_/ |_|\\___/\\___/\\____/_/   \\__,_/\\___/_/    v"+pkg.version).green);
+console.log(("Yu tu "+pkg.version).green);
 console.log('');
-console.log('Official Site: http://uirecorder.com'.cyan);
 console.log('------------------------------------------------------------------\n'.green);
 
 program
@@ -51,7 +46,7 @@ program.command('init')
     .description('Init UIRecorder config file')
     .action(function(){
         cmd = 'init';
-        UIRecorder.init({
+        Yutu.init({
             locale: program.lang,
             mobile: program.mobile,
             debug: program.debug
@@ -62,7 +57,7 @@ program.command('start')
     .description('Start recorder')
     .action(function(){
         cmd = 'start'
-        UIRecorder.start({
+        Yutu.start({
             locale: program.lang,
             cmdFilename: program.args.length === 2 ? program.args[0] : '',
             mobile: program.mobile,
@@ -75,7 +70,7 @@ program.command('start')
     });
 
 program.parse(process.argv);
-UIRecorder.checkUpdate(program.lang);
+Yutu.checkUpdate(program.lang);
 
 if(cmd === null){
     // default command
@@ -86,8 +81,7 @@ if(cmd === null){
     var configJson = {};
 
     if(fs.existsSync(configFile)){
-        console.log('program.sync', program.sync);
-        UIRecorder.start({
+        Yutu.start({
             locale: program.lang,
             cmdFilename: program.args.length === 1 ? program.args[0] : '',
             mobile: program.mobile,
@@ -101,7 +95,7 @@ if(cmd === null){
     else{
         console.log(configPath.bold+' '+__('file_missed').red);
         console.log('');
-        UIRecorder.init({
+        Yutu.init({
             locale: program.lang,
             mobile: program.mobile,
             debug: program.debug

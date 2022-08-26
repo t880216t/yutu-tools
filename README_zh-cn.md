@@ -1,4 +1,4 @@
-# UI Recorder
+# Yutu tools
 
 ---
 
@@ -9,6 +9,10 @@
 [![NPM count](https://img.shields.io/npm/dm/uirecorder.svg?style=flat-square)](https://www.npmjs.com/package/uirecorder)
 [![NPM count](https://img.shields.io/npm/dt/uirecorder.svg?style=flat-square)](https://www.npmjs.com/package/uirecorder)
 [![TesterHome](https://img.shields.io/badge/TTF-TesterHome-2955C5.svg)](https://testerhome.com/github_statistics)
+
+本项目是对UI Recorder的深度改造，用来实现与selenium-grid打通的多端同步操作驱动。
+
+感谢UI Recorder项目的每一位贡献者！
 
 UI Recorder 是一款面向多端的 UI 自动化录制工具，类似于[Selenium IDE](http://docs.seleniumhq.org/projects/ide/) 但比Selenium IDE 更加强大!
 
@@ -38,22 +42,6 @@ UI Recorder 非常简单易用，零成本解决测试回归问题。
 13. 全系统支持: Windows, Mac, Linux
 14. 基于Nodejs的测试用例: [jWebDriver](http://jwebdriver.com/)
 
-# 软件截图
-
-![shot1](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot1.png)
-
-![shot2](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot2.png)
-
-![shot3](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot3.png)
-
-![shot4](https://raw.github.com/alibaba/uirecorder/master/screenshot/shot4.png)
-
-# 视频演示
-
-![video1](http://wx1.sinaimg.cn/mw1024/7f3afc78gy1fdf5gass5rg20sg0g0kjo.gif)
-
-![video2](http://wx2.sinaimg.cn/mw1024/7f3afc78gy1fdf5hb8anig20sg0g0u12.gif)
-
 # 快速开始
 
 ## 安装
@@ -70,7 +58,7 @@ UI Recorder 非常简单易用，零成本解决测试回归问题。
 
 3. 安装 UI Recorder
 
-    > `npm install uirecorder mocha -g`
+    > `npm install yutu-tools mocha -g`
 
 ## PC录制
 
@@ -78,13 +66,13 @@ UI Recorder 非常简单易用，零成本解决测试回归问题。
 
     > 创建新文件夹
 
-    > `uirecorder init`
+    > `yutu init`
 
 2. 开始录制测试用例
 
     > 修改hosts文件
 
-    > `uirecorder sample/test.spec.js`
+    > `yutu sample/test.spec.js`
 
 3. 启动WebDriver服务器
 
@@ -128,11 +116,11 @@ UI Recorder 非常简单易用，零成本解决测试回归问题。
 
     > 创建新文件夹
 
-    > `uirecorder init --mobile`
+    > `yutu init --mobile`
 
 3. 开始录制测试用例
 
-    > `uirecorder --mobile sample/test.spec.js`
+    > `yutu --mobile sample/test.spec.js`
 
 4. 运行测试用例
 
@@ -157,10 +145,11 @@ UI Recorder 非常简单易用，零成本解决测试回归问题。
 
 # License
 
-UIRecorder is released under the MIT license.
+yutu is released under the MIT license.
 
 # 感谢
 
+* uirecorder: [https://github.com/alibaba/uirecorder](https://github.com/alibaba/uirecorder)
 * jWebDriver: [https://github.com/yaniswang/jWebDriver](https://github.com/yaniswang/jWebDriver)
 * chai: [https://github.com/chaijs/chai](https://github.com/chaijs/chai)
 * macaca-mocha-parallel-tests: [https://github.com/macacajs/macaca-mocha-parallel-tests](https://github.com/macacajs/macaca-mocha-parallel-tests)
