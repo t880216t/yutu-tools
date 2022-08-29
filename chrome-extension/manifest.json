@@ -20,6 +20,7 @@
    "web_accessible_resources": [
       "js/foreground.js",
       "img/hover.png",
+      "img/new-hover.png",
       "img/sleep.png",
       "img/expect.png",
       "img/jump.png",

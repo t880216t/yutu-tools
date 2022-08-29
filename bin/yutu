@@ -31,14 +31,18 @@ console.log('------------------------------------------------------------------\
 
 program
     .version(pkg.version)
-    .option('-l, --lang <en|zh-cn|zh-tw>', 'change language')
+    .option('-l, --lang <en|zh-cn|zh-tw>', 'change language' )
     .option('--no-color', 'disable colors')
     .option('-m --mobile', 'mobile mode')
     .option('-d --debug', 'debug mode')
     .option('-r --raw', 'save raw cmds')
     .option('--default', 'open checker browser and set 1024x768 by default')
     .option('--device [value]', 'set mobile device name')
-    .option('--sync [value]', 'set sync browsers');
+    .option('--sync [value]', 'set sync browsers')
+    .option('--hub_url [value]', 'hub server url')
+    .option('--hub_port [value]', 'hub server port')
+    .option('--server_ip [value]', 'sync server ip')
+    .option('--main_client [value]', 'main control browser')
 
 var cmd = null;
 
@@ -49,7 +53,12 @@ program.command('init')
         Yutu.init({
             locale: program.lang,
             mobile: program.mobile,
-            debug: program.debug
+            debug: program.debug,
+            host: program.hub_url,
+            port: program.hub_port,
+            syncBrowsers: program.sync,
+            serverIp: program.server_ip,
+            mainClient: program.main_client,
         });
     });
 
@@ -65,7 +74,6 @@ program.command('start')
             raw: program.raw,
             default: program.default,
             mobileDevice: program.device,
-            syncBrowsers: program.sync
         });
     });
 
@@ -89,7 +97,6 @@ if(cmd === null){
             raw: program.raw,
             default: program.default,
             mobileDevice: program.device,
-            syncBrowsers: program.sync
         });
     }
     else{
