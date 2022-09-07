@@ -67,7 +67,7 @@
         type: 'initBackService',
         data: {
             port: mapParams.port,
-            ip: mapParams.ip
+            ip: mapParams.ip,
         }
     });
 

@@ -84,6 +84,9 @@
             ip: mapParams.ip,
         }
     });
+    if (mapParams.defaultUrl && txtUrl){
+        txtUrl.value = decodeURIComponent(mapParams.defaultUrl);
+    }
 
     txtUrl.focus();
     frmStart.onsubmit = function(){

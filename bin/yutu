@@ -45,6 +45,7 @@ program
     .option('--main_client [value]', 'main control browser')
     .option('--browser_size [value]', 'browser screen size')
     .option('--http_proxy [value]', 'docker container http proxy')
+    .option('--default_url [value]', 'default url')
 
 var cmd = null;
 
@@ -78,6 +79,7 @@ program.command('start')
             mobileDevice: program.device,
             browserSize: program.browser_size,
             httpProxy: program.http_proxy,
+            defaultUrl: program.default_url,
         });
     });
 
@@ -103,6 +105,7 @@ if(cmd === null){
             mobileDevice: program.device,
             browserSize: program.browser_size,
             httpProxy: program.http_proxy,
+            defaultUrl: program.default_url,
         });
     }
     else{
