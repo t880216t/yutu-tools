@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const chai = require("chai");
 const should = chai.should();
-const JWebDriver = require('jwebdriver');
+const JWebDriver = require('mwebdriver');
 chai.use(JWebDriver.chaiSupportChainPromise);
 const resemble = require('resemblejs-node');
 resemble.outputSettings({

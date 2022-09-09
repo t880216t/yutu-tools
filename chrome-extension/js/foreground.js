@@ -1739,15 +1739,22 @@
             var divDomToolsPannel = document.createElement("div");
             divDomToolsPannel.id = 'uirecorder-tools-pannel';
             divDomToolsPannel.className = 'uirecorder';
+
+            // tools context
+            var divDomToolsContext = document.createElement("div");
+            divDomToolsContext.id = 'uirecorder-tools-context';
+            divDomToolsContext.className = 'uirecorder-context';
+
             var arrHTML = [
-                '<div style="padding:5px;color:#666;font-size:16px;"><strong>元素定位路径: </strong><span id="uirecorder-path"></span></div>',
-                '<div style="padding:5px;color:#999;font-size:10px;">'+__('attr_switch')+'<span id="uirecorder-attrs"><span class="on">data-id</span></span></div>',
-                '<div style="padding:5px;color:#999;font-size:10px;">'+__('attr_black')+'<input id="uirecorder-attrblack" value="'+strAttrValueBlack+'" placeholder="'+__('attr_black_tip')+'" style="border:1px solid #ccc;padding:3px;background:#f1f1f1;width:600px;" /></div>',
-                '<div><span class="uirecorder-button"><a name="uirecorder-hover"><img src="'+baseUrl+'img/new-hover.png" alt="">'+__('button_hover_on_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-expect"><img src="'+baseUrl+'img/expect.png" alt="">'+__('button_expect_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-vars"><img src="'+baseUrl+'img/vars.png" alt="">'+__('button_vars_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-jscode"><img src="'+baseUrl+'img/jscode.png" alt="">'+__('button_jscode_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-sleep"><img src="'+baseUrl+'img/sleep.png" alt="">'+__('button_sleep_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-jump"><img src="'+baseUrl+'img/jump.png" alt="">'+__('button_jump_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-end"><img src="'+baseUrl+'img/end.png" alt="">'+__('button_end_text')+'</a></span></div>',
+                '<div style="padding:5px;color:#666;font-size:16px;">元素定位路径<span id="uirecorder-path"></span></div>',
+                '<div style="padding:5px;color:#999;font-size:10px;display:none;">'+__('attr_switch')+'<span id="uirecorder-attrs"><span class="on">data-id</span></span></div>',
+                '<div style="padding:5px;color:#999;font-size:10px;display:none;">'+__('attr_black')+'<input id="uirecorder-attrblack" value="'+strAttrValueBlack+'" placeholder="'+__('attr_black_tip')+'" style="border:1px solid #ccc;padding:3px;background:#f1f1f1;width:600px;" /></div>',
+                '<div class="button-container"><span class="uirecorder-button"><a name="uirecorder-hover"><img src="'+baseUrl+'img/new-hover.png" alt="">'+__('button_hover_on_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-expect"><img src="'+baseUrl+'img/expect.png" alt="">'+__('button_expect_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-vars"><img src="'+baseUrl+'img/vars.png" alt="">'+__('button_vars_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-jscode"><img src="'+baseUrl+'img/jscode.png" alt="">'+__('button_jscode_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-sleep"><img src="'+baseUrl+'img/sleep.png" alt="">'+__('button_sleep_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-jump"><img src="'+baseUrl+'img/jump.png" alt="">'+__('button_jump_text')+'</a></span><span class="uirecorder-button"><a name="uirecorder-end"><img src="'+baseUrl+'img/end.png" alt="">'+__('button_end_text')+'</a></span></div>',
                 '<span id="uirecorder-version">Yutu v'+pkgVersion+'</span>',
-                '<style>#uirecorder-tools-pannel{position:fixed;z-index:2147483647;padding:20px;width:850px;box-sizing:border-box;border:1px solid #ccc;line-height:1;background:rgba(241,241,241,0.9);box-shadow: 5px 5px 10px #888888;bottom:10px;left:10px;cursor:move;text-align:left;}#uirecorder-path{border-bottom: dashed 1px #ccc;padding:2px;color:#FF7159;font-size:12px;}.uirecorder-button{cursor:pointer;margin: 5px;}.uirecorder-button a{text-decoration: none;color:#333333;font-family: arial, sans-serif;font-size: 12px;color: #777;text-shadow: 1px 1px 0px white;background: -webkit-linear-gradient(top, #ffffff 0%,#dfdfdf 100%);border-radius: 3px;box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4);padding: 5px 7px;white-space: nowrap;}.uirecorder-button a:hover{background: -webkit-linear-gradient(top, #ffffff 0%,#eee 100%);box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4);}.uirecorder-button a:active{background: -webkit-linear-gradient(top, #dfdfdf 0%,#f1f1f1 100%);box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2) inset, 0px 1px 1px 0 rgba(255,255,255,1);}.uirecorder-button a img{display:inline-block;padding-right: 8px;position: relative;top: 2px;vertical-align:baseline;width:auto;height:auto;}#uirecorder-attrs span{text-align: center; border-radius:4px;padding:3px 5px;font-size:12px;text-decoration: none;margin:0px 3px;display: inline-block;cursor: pointer;}#uirecorder-attrs span.on{color:#777;background-color:#f3f3f3;box-shadow: 0 1px 3px 0px rgba(0,0,0,0.3);}#uirecorder-attrs span.off{color:#bbb;background-color: #eee;box-shadow: 0 1px 3px 0px rgba(0,0,0,0.2);}#uirecorder-version{position:absolute;top:10px;right:10px;color:#999;font-size:12px;}</style>'
+                '<style>#uirecorder-tools-pannel{position:fixed;z-index:2147483647;padding:20px;box-sizing:border-box;border:1px solid #ccc;line-height:1;width:40px;border-radius:30px;background:url("'+baseUrl+'img/yutu.png") no-repeat top center;background-size:cover;box-shadow:5px 5px 10px #888888;top:10px;right:10px;cursor:move;text-align:left;}#uirecorder-tools-pannel:hover{width:150px;border-radius:10px;background:rgba(241,241,241,0.9);}#uirecorder-path{border-bottom:dashed 1px #ccc;padding:2px;color:#FF7159;font-size:12px;}.uirecorder-context{height:1px;overflow:hidden;}.uirecorder:hover .uirecorder-context{height:400px;}.uirecorder:hover #uirecorder-version{display:block;}.uirecorder-button{cursor:pointer;margin:5px;}.uirecorder-button a{text-decoration:none;color:#333333;font-family:arial,sans-serif;font-size:12px;color:#777;text-shadow:1px 1px 0px white;background:-webkit-linear-gradient(top,#ffffff 0%,#dfdfdf 100%);border-radius:3px;box-shadow:0 1px 3px 0px rgba(0,0,0,0.4);padding:5px 7px;white-space:nowrap;}.uirecorder-button a:hover{background:-webkit-linear-gradient(top,#ffffff 0%,#eee 100%);box-shadow:0 1px 3px 0px rgba(0,0,0,0.4);}.uirecorder-button a:active{background:-webkit-linear-gradient(top,#dfdfdf 0%,#f1f1f1 100%);box-shadow:0px 1px 1px 1px rgba(0,0,0,0.2) inset,0px 1px 1px 0 rgba(255,255,255,1);}.uirecorder-button a img{display:inline-block;padding-right:8px;position:relative;top:2px;vertical-align:baseline;width:auto;height:auto;}#uirecorder-attrs span{text-align:center;border-radius:4px;padding:3px 5px;font-size:12px;text-decoration:none;margin:0px 3px;display:inline-block;cursor:pointer;}#uirecorder-attrs span.on{color:#777;background-color:#f3f3f3;box-shadow:0 1px 3px 0px rgba(0,0,0,0.3);}#uirecorder-attrs span.off{color:#bbb;background-color:#eee;box-shadow:0 1px 3px 0px rgba(0,0,0,0.2);}#uirecorder-version{position:absolute;top:5px;right:10px;color:#999;font-size:12px;display:none;}.button-container{display:flex;flex-direction:column;}</style>'
             ];
-            divDomToolsPannel.innerHTML = arrHTML.join('');
+            divDomToolsContext.innerHTML = arrHTML.join('');
+            divDomToolsPannel.appendChild(divDomToolsContext);
             var diffX = 0, diffY =0;
             var isDrag = false, isMove = false;
             divDomToolsPannel.addEventListener('selectstart', function(event){
@@ -2006,7 +2013,7 @@
                 var arrHtmls = [
                     '<ul>',
                     '<li><label>'+__('dialog_expect_sleep')+'</label><input id="uirecorder-expect-sleep" type="text" /> ms</li>',
-                    '<li><label>'+__('dialog_expect_type')+'</label><select id="uirecorder-expect-type" value=""><option>val</option><option>text</option><option>displayed</option><option>enabled</option><option>selected</option><option>attr</option><option>css</option><option>url</option><option>title</option><option>cookie</option><option>localStorage</option><option>sessionStorage</option><option>alert</option><option>jscode</option><option>count</option><option>imgdiff</option></select></li>',
+                    '<li><label>'+__('dialog_expect_type')+'</label><select id="uirecorder-expect-type" value=""><option>val</option><option>text</option><option>displayed</option><option>enabled</option><option>selected</option><option>attr</option><option>css</option><option>url</option><option>title</option><option>cookie</option><option>localStorage</option><option>sessionStorage</option><option>alert</option><option>jscode</option><option>count</option><option>imgdiff</option><option>fulldiff</option></select></li>',
                     '<li id="uirecorder-expect-dom-div"><label>'+__('dialog_expect_dom')+'</label><input id="uirecorder-expect-dom" type="text" /></li>',
                     '<li id="uirecorder-expect-param-div"><label>'+__('dialog_expect_param')+'</label><textarea id="uirecorder-expect-param"></textarea></li>',
                     '<li><label>'+__('dialog_expect_compare')+'</label><select id="uirecorder-expect-compare"><option>equal</option><option>notEqual</option><option>contain</option><option>notContain</option><option>above</option><option>below</option><option>match</option><option>notMatch</option></select></li>',
@@ -2014,7 +2021,7 @@
                     '</ul>'
                 ];
                 var domExpectDomDiv, domExpectParamDiv, domExpectSleep, domExpectType, domExpectDom, domExpectParam, domExpectCompare, domExpectTo;
-                var reDomRequire = /^(val|text|displayed|enabled|selected|attr|css|count|imgdiff)$/;
+                var reDomRequire = /^(val|text|displayed|enabled|selected|attr|css|count|imgdiff|fulldiff)$/;
                 var reParamRequire = /^(attr|css|cookie|localStorage|sessionStorage|alert|jscode)$/;
                 showDialog(__('dialog_expect_title'), arrHtmls.join(''), {
                     onInit: function(){
@@ -2036,6 +2043,9 @@
                                     domExpectParam.value = 'mouseUp';
                                     break;
                                 case 'imgdiff':
+                                    domExpectCompare.value = 'below';
+                                    domExpectTo.value = 5;
+                                case 'fulldiff':
                                     domExpectCompare.value = 'below';
                                     domExpectTo.value = 5;
                                     break;
@@ -2069,6 +2079,8 @@
                                     }
                                     break;
                                 case 'imgdiff':
+                                    break;
+                                case 'fulldiff':
                                     break;
                                 default:
                                     // 到iframe中获取默认值

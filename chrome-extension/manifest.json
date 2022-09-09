@@ -19,6 +19,7 @@
    }],
    "web_accessible_resources": [
       "js/foreground.js",
+      "img/yutu.png",
       "img/hover.png",
       "img/new-hover.png",
       "img/sleep.png",
