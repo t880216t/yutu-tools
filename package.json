@@ -1,6 +1,6 @@
 {
   "name": "yutu-tools",
-  "version": "0.5.2",
+  "version": "0.5.8",
   "description": "多浏览器同步兼容测试驱动",
   "main": "./index",
   "bin": {
@@ -23,7 +23,11 @@
     "npminstall": "6.5.1",
     "os-locale": "1.4.0",
     "resemblejs-node": "1.0.0",
+    "selenium-webdriver": "^4.4.0",
     "semver": "5.3.0",
+    "w3c-webdriver": "^3.0.0",
+    "webdriver": "^7.24.0",
+    "webdriverio": "^7.24.0",
     "websocket": "1.0.22"
   },
   "devDependencies": {
