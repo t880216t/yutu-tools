@@ -37,6 +37,9 @@
 3. 安装 Yutu
 
    > `npm install yutu-tools -g`
+   >
+   > 其中它的图片对比能力是来自于```graphicsmagick ```，因此还需要额外安装下
+   mac：```brew install graphicsmagick```
 
 ## PC同步操作&录制
 
@@ -66,13 +69,13 @@
         },
         "syncBrowsers": [
             {
-                "browserId": 1,
-                "proxy": "",
-                "screenSize": "1920x1080x24",
-                "browserName": "firefox",
-                "displayName": "firefox",
+                "browserId": 1,  // 浏览器的唯一标识
+                "proxy": "",  // 自定义参数，暂未启用
+                "screenSize": "1920x1080x24", // 自定义参数，暂未启用
+                "browserName": "firefox",  // 浏览器内核的名字，如：chrome、firefox
+                "displayName": "firefox",   // 浏览器的名字如：qq、yandex
                 "version": "105",
-                "binary": null
+                "binary": null   // chromium内核的国产浏览器的exe执行文件路径
             }
         ]
     },
@@ -93,7 +96,6 @@
         "hideBeforeExpect": ""
     }
 }
-
 ```
 
 3. 开始多浏览器的同步操作
