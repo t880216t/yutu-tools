@@ -1,6 +1,6 @@
 {
     "update_tip": "  發現新版本: %s → %s\n  執行命令升級：%s",
-    "please_reinit": "請重新初始化: uirecorder init",
+    "please_reinit": "請重新初始化: yutu",
     "webdriver_host": "WebDriver域名或IP",
     "webdriver_port": "WebDriver端口號",
     "webdriver_browsers": "需要同時測試的瀏覽器列表",

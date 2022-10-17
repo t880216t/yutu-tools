@@ -13,23 +13,12 @@
 # 功能
 
 1. 支持所有用户行为: 键盘事件, 鼠标事件, alert, 文件上传, 拖放, svg, shadow dom
-2. 全平台支持，移动端 Android, iOS 录制, 基于 [Macaca](https://macacajs.github.io) 实现
-3. 无干扰录制: 和正常测试无任何区别，无需任何交互
-4. 录制用例存储在本地
-5. 支持丰富的断言类型: val,text,displayed,enabled,selected,attr,css,url,title,cookie,localStorage,sessionStorage
-6. 支持图片对比
-7. 支持强大的变量字符串
-8. 支持公共测试用例: 允许用例中动态调用另外一个
-9. 支持并发测试
-10. 支持多国语言: 英文, 简体中文, 繁体中文
-11. 支持单步截图
-12. 支持HTML报告和JUnit报告
-13. 全系统支持: Windows, Mac, Linux
-14. 基于Nodejs的测试用例: [jWebDriver](http://jwebdriver.com/)
-
-------扩展功能------
-15. 支持自定义数量浏览器的同步操作
-16. 支持远程hub的浏览器调用录制对比
+2. 无干扰同步: 和正常测试无任何区别，无需任何交互
+3. 支持丰富的断言类型
+4. 支持自定义数量、类型、版本的浏览器同步操作
+5. 支持图片元素或全屏截图对比
+6. 全系统支持: Windows, Mac, Linux
+7. 支持远程hub的浏览器调用同步对比
 
 # 快速开始
 
@@ -47,7 +36,7 @@
 
 3. 安装 Yutu
 
-   > `npm install yutu-tools mocha -g`
+   > `npm install yutu-tools -g`
 
 ## PC同步操作&录制
 
@@ -55,29 +44,61 @@
 
    > 创建新文件夹
 
-   > `yutu init --server_ip=192.168.1.108 --hub_url=192.168.68.153 --hub_port=4444 --main_client=chrome:101 --sync=chrome:101,chrome:100 `
+   > `yutu init`
 
 2. 启动WebDriver服务器
+   > 建议使用selenium-grid管理本地多个浏览器
 
-3. 开始录制测试用例和多浏览器的同步操作
+   > 并手动修改```config.json```中的主控浏览器及同步浏览器配置如下：
 
-    > `yutu sample/test.spec.js`
+```json
+{
+    "webdriver": {
+        "host": "127.0.0.1",  // 远程hub地址
+        "port": "4444",
+        "mainBrowser": {
+            "browserId": 2,
+            "displayName": "chrome",
+            "browserName": "chrome",
+            "version": "106",
+            "httpProxy": "",
+            "binary": null
+        },
+        "syncBrowsers": [
+            {
+                "browserId": 1,
+                "proxy": "",
+                "screenSize": "1920x1080x24",
+                "browserName": "firefox",
+                "displayName": "firefox",
+                "version": "105",
+                "binary": null
+            }
+        ]
+    },
+    "browserSize": "1920x1080x24",
+    "defaultUrl": "https://www.baidu.com/",
+    "vars": {},
+    "serverIp": "192.168.1.101",  //本地执行命令机器的ip，非远程webdriver，可以使用127.0.0.1
+    "reporter": {
+        "distDir": ""
+    },
+    "screenshots": {
+        "captureAll": true
+    },
+    "recorder": {
+        "pathAttrs": "data-id,data-name,type,data-type,role,data-role,data-value",
+        "attrValueBlack": "",
+        "classValueBlack": "",
+        "hideBeforeExpect": ""
+    }
+}
 
-4. 运行测试用例
+```
 
-   > 运行所有脚本: `source run.sh` ( Linux|Mac ) 或 `run.bat` ( Windows )
+3. 开始多浏览器的同步操作
 
-   > 运行单个脚本: `source run.sh sample/test.spec.js` ( Linux|Mac ) 或 `run.bat sample/test.spec.js` ( Windows )
-
-5. 获得测试报告和单步截图
-
-   > ./reports/index.html
-
-   > ./reports/index.xml (JUnit)
-
-   > ./reports/index.json
-
-   > ./screenshots/
+    > `yutu start`
 
 
 # License

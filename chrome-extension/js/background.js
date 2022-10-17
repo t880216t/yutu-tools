@@ -70,14 +70,16 @@ function sendGlobalEvents(msg, senderTabId){
 
 // websocket to ui recorder server
 var wsSocket;
-function connectServer(data){
+async function connectServer(data){
     const {ip, port} = data
-    console.log('data', data);
     if(!wsSocket){
         wsSocket = new WebSocket('ws://'+ ip + ':' + port, "protocolOne");
-        wsSocket.onopen = function (event) {
-            console.log('ws connected!');
-        }
+        await new Promise((resolve) => {
+            wsSocket.onopen = function (event) {
+                console.log('ws connected!');
+                resolve()// 等待连接成功 再发送消息并执行后续代码
+            }
+        })
         wsSocket.onmessage = function (message) {
             message = message.data;
             try{
@@ -324,7 +326,7 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
 });
 
 // catch current window events
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
     if(isWorking && sender && sender.tab){
         var tabId = sender.tab.id;
         var windowId = getWindowId(tabId);
@@ -333,7 +335,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             var data = request.data;
             switch(type){
                 case 'initBackService':
-                    connectServer(data);
+                    await connectServer(data);
                     break;
                 case 'save':
                     endRecorder(true);
