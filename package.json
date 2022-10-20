@@ -1,6 +1,6 @@
 {
   "name": "yutu-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "多浏览器同步兼容测试驱动",
   "main": "./index",
   "bin": {

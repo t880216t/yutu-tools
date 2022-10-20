@@ -153,7 +153,11 @@ function sendWsMessage(type, data){
             type: type,
             data: data
         };
-        wsSocket.send(JSON.stringify(message));
+        if (wsSocket.readyState===1) {
+            wsSocket.send(JSON.stringify(message));
+        }else {
+            console.log("wsSocket not ready, send message failed:", JSON.stringify(message))
+        }
     }
 }
 
