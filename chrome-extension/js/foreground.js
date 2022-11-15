@@ -71,6 +71,9 @@
 
     // load config
     function updateConfig(config){
+        if (!config){
+            return
+        }
         pkgVersion = config.version;
         if(config.testVars){
             testVars = config.testVars;
