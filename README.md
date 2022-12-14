@@ -70,7 +70,7 @@
         "syncBrowsers": [
             {
                 "browserId": 1,  // 浏览器的唯一标识
-                "proxy": "",  // 自定义参数，暂未启用
+                "httpProxy": "",  // 浏览器代理
                 "screenSize": "1920x1080x24", // 自定义参数，暂未启用
                 "browserName": "firefox",  // 浏览器内核的名字，如：chrome、firefox
                 "displayName": "firefox",   // 浏览器的名字如：qq、yandex
