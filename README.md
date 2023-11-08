@@ -66,8 +66,7 @@
             "browserName": "chrome",
             "version": "106",
             "httpProxy": "",
-            "binary": null,
-            "userDataDir": "/UsersData/Chrome/Default"
+            "binary": null
         },
         "syncBrowsers": [
             {
@@ -78,7 +77,7 @@
                 "displayName": "firefox",   // 浏览器的名字如：qq、yandex
                 "version": "105",
                 "binary": null,  // chromium内核的国产浏览器的exe执行文件路径
-                "userDataDir": "/UsersData/Chrome/Default" // 用户配置路径
+                "userDataDir": "/UsersData/Chrome/Default" // 用户配置路径，macos的原始数据在/Users/xxx/Library/Application Support/Google/Chrome，可以复制出来用
             }
         ]
     },
