@@ -19,6 +19,7 @@
 5. 支持图片元素或全屏截图对比
 6. 全系统支持: Windows, Mac, Linux
 7. 支持远程hub的浏览器调用同步对比
+8. 支持多用户配置
 
 # 快速开始
 
@@ -65,7 +66,8 @@
             "browserName": "chrome",
             "version": "106",
             "httpProxy": "",
-            "binary": null
+            "binary": null,
+            "userDataDir": "/UsersData/Chrome/Default"
         },
         "syncBrowsers": [
             {
@@ -75,7 +77,8 @@
                 "browserName": "firefox",  // 浏览器内核的名字，如：chrome、firefox
                 "displayName": "firefox",   // 浏览器的名字如：qq、yandex
                 "version": "105",
-                "binary": null   // chromium内核的国产浏览器的exe执行文件路径
+                "binary": null,  // chromium内核的国产浏览器的exe执行文件路径
+                "userDataDir": "/UsersData/Chrome/Default" // 用户配置路径
             }
         ]
     },
